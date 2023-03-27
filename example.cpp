@@ -25,5 +25,10 @@ int main()
         std::cout << result.get() << ' ';
     std::cout << std::endl;
     
+    // test public thread pool
+    std::vector<int> params = {0,1,2,3,4,5};
+    Singleton<PublicThreadPool>::get()->ForEach(
+      params.begin(), params.end(), [&](auto& itr) { std::cout << iter << std::endl; });
+    
     return 0;
 }
